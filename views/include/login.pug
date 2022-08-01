@@ -1,0 +1,21 @@
+extends ../layout 
+  
+block content
+    #main
+     form(action="dashboard" method="post")
+       div.label login form
+       div.username
+        input(type="email" name="email" placeholder="Email" required)
+       div.password
+        input(type="password" name="password" placeholder="Password" required)
+       div.checkbox
+        input(type='checkbox' name='agreement' checked)
+        |Remember me
+       button(type="submit") Login
+       h3 or login with
+       div.social
+        button(type="button") <i class="fa fa-facebook"></i>
+        button(type="button") <i class="fa fa-google-plus"></i>
+       p
+        | not a member
+        a(href='reg') Sing Up now

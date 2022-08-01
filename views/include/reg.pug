@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+    #main
+     form(action="reg" method="post")
+       div.label Registration Form
+       div.username
+        input(type="firstname" name="firstname" placeholder="First Name" required)
+       div.username
+        input(type="lastname" name="lastname" placeholder="Last Name" required)
+       div.email
+        input(type="email" name="email" placeholder="Email" required)
+       div.phonenumber
+        input(type="phonenumber" name="phonenumber" placeholder="Phone Number" required)
+       div.password
+        input(type="password" name="password" placeholder="Password" required)
+       div.password
+        input(type="password" name="cpassword"  placeholder="Confirm Password" required)
+       button(type="submit") SignUp
+       h3 or login with
+       div.social
+        button(type="button") <i class="fa fa-facebook"></i>
+        button(type="button") <i class="fa fa-google-plus"></i>
