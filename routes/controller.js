@@ -7,13 +7,7 @@ const { response } = require('../app');
 const getEmployee =async(req,res)=>{
     console.log('Getting students');
     const emp = await employee.findAll();
-    // console.log(emp);
-    // console.log(emp.every(user => user instanceof employee)); // true
-    // console.log("All users:", JSON.stringify(emp, null, 2));
-    console.log("Printed All Data");
-    // console.log(res.rows);
     res.send(emp);
-    // res.render('../views/include/dashboard.pug', { emp });
     };
 
 const createEmployee=async(req,res)=>{
@@ -46,12 +40,10 @@ const createEmployee=async(req,res)=>{
       console.log("Hased Password",hashedPassword);
       const emp =await employee.create({ firstname:firstname , lastname:lastname, email:email, 
       phonenumber:phonenumber, password:hashedPassword });
-      console.log("Babu's auto-generated ID:",{
-      message: `Registered Successful ${firstname}`});
-      res.status(200);
+      console.log("Babu's auto-generated ID:",{message: `Registered Successful ${firstname}`});
+      res.send({status: true, message: `Registered Successful ${firstname}`})
     }else{
-      console.log('Email Already Available');
-      res.status(400);
+      res.send({status: false, message:  `Email already exists`})
     }}
     
 const getEmployeeById=async(req,res)=>{

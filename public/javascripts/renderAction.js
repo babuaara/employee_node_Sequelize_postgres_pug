@@ -7,7 +7,7 @@ var table=$('#empTable').DataTable( {
             $('#employeeModalAdd').modal('show');}
         }],    
     "processing": true,
-    "serverSide": true,"searching": true,"responsive": true,"cache":false,
+    "serverSide": true,"search": true,"responsive": true,"cache":false,
     "ajax": {
         "url": "emps","type": "GET","dataSrc": "","datatype": 'json'},
     "columns": [  
@@ -30,7 +30,6 @@ var table=$('#empTable').DataTable( {
                 orderable: false,
            }  
         ]
-        
 });
 //Edit Employee record
 $('#empTable tbody').on('click', 'td.editor-edit', function () {   
@@ -94,16 +93,12 @@ $(function(){
             url: 'add',
             type: 'post',
             data: {firstname,lastname,email,phonenumber,password,cpassword},
-            }) 
-            if (this.status == 200) 
-        {
-            table.ajax.reload();
-            $('#employeeModalAdd').modal('hide')
-            alert("Employee Added Successfully !!!!");
-        }   else{
-            alert("Email Allready Registerd");
-        }
-           
+            success : function(res){
+                $('#employeeModalAdd').modal('hide')
+                table.ajax.reload();                
+                alert(res.message);
+            }
+        }) 
         }});
 });
 

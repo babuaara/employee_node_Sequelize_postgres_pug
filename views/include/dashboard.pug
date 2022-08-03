@@ -12,12 +12,17 @@ head
   link(rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jqc-1.12.4/dt-1.12.1/b-2.2.3/sl-1.4.0/datatables.min.css")
   link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap')
   link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
-  //- link(rel='stylesheet', href='/stylesheets/style.css')
+  link(rel='stylesheet', href='/stylesheets/style.css')
 
-nav#navbar-default My Website!      
+.topnav
+  a.active(href='#home') Home
+  a(href='#news') News
+  a(href='#contact') Contact
+  a(href='#about') About
+  a#signout(href='index') Sign Out
+    
 .container-fluid.well
-  h1#dash welcome !{firstname}
-    a#in(href='index') Logout 
+  h1#dash Welcome !{firstname}
 //Update Modal
 #employeeModal.modal.fade(tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true')
   .modal-dialog
