@@ -2,20 +2,44 @@ extends ../layout
   
 block content
     #main
-     form(action="dashboard" method="post")
+     form
        div.label login form
-       div.username
+       div.userName
         input(type="email" name="email" placeholder="Email" required)
        div.password
         input(type="password" name="password" placeholder="Password" required)
        div.checkbox
         input(type='checkbox' name='agreement' checked)
         |Remember me
-       button(type="submit") Login
+       button#login(type="button") Login
        h3 or login with
-       div.social
-        button(type="button") <i class="fa fa-facebook"></i>
-        button(type="button") <i class="fa fa-google-plus"></i>
        p
         | not a member
-        a(href='reg') Sing Up now
+        a(href='reg') Sign Up now
+
+    // jQuery (necessary for Bootstrap's JavaScript plugins)
+    script(src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous")
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js')
+    // select js
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js' integrity='sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==' crossorigin='anonymous' referrerpolicy='no-referrer')
+    //- script(src='https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js')
+    //- script(src='https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js')
+    // dataTable
+    script(type="text/javascript" charset="utf8", src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js")
+    script(type="text/javascript" charset="utf8", src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js")
+    script(type="text/javascript" charset="utf8", src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js")
+    script(type="text/javascript" charset="utf8", src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.bootstrap4.min.js")
+    script(type="text/javascript" src="https://cdn.datatables.net/v/dt/jqc-1.12.4/dt-1.12.1/b-2.2.3/sl-1.4.0/datatables.min.js")
+    script(type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js")
+    script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js")
+    script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js")
+    script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js")
+    script(type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js")
+    script(type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js")
+    script(type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.colVis.min.js")
+    // custom
+    script(type="text/javascript" charset="utf8", src="/javascripts/renderAction.js")
+    // popper & bootstrap
+    script(src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous") 
+    script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous") 
+    

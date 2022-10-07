@@ -1,0 +1,150 @@
+head
+  link(rel='icon' href='/public/images/sun.jpg')
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Employee Dashboard
+  // Latest compiled and minified CSS
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css')
+  link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous") 
+  // dataTable
+  link(rel="stylesheet" href="https://editor.datatables.net/extensions/Editor/css/editor.dataTables.min.css")
+  link(rel="stylesheet", type="text/css", href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css")
+  link(rel="stylesheet", type="text/css", href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css")
+  link(rel="stylesheet", type="text/css", href="https://cdn.datatables.net/select/1.4.0/css/select.dataTables.min.css")
+  link(rel="stylesheet", type="text/css", href="https://editor.datatables.net/extensions/Editor/css/editor.dataTables.min.css")  
+  link(rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jqc-1.12.4/dt-1.12.1/b-2.2.3/sl-1.4.0/datatables.min.css")
+  link(rel="stylesheet" type="text/css" href="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css")
+    //-   link(rel='stylesheet' href='https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css')
+    //-   link(rel='stylesheet' href='https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css')
+
+  // select
+  link(href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet")
+  // Bootstrap
+  link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap')
+  link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(href='https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css' rel='stylesheet')
+  // custom css
+  link(rel='stylesheet', href='/stylesheets/style.css')
+
+.topnav
+  a(href='dashboard') Home
+  a(href='#news') News
+  a(href='#contact') Contact
+  a(href='payroll') Example Payroll
+  a.active(href='payrollNew') Payroll
+  a(href='#about') About
+  a#signout(href='index') Sign Out
+    
+.container-fluid.well
+  h1#dash Employee Payroll
+//Update Modal
+#payrollModalNew.modal.fade(tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true')
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h5#exampleModalLabel.modal-title Employee Payroll Update
+        button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+      .modal-body
+        .form-group
+          label(for='department') Department          
+          select#departmentNew.departmentPayNew-select2.form-control(name='department', style='width: 465px', required)
+            option(value="-1" selected="selected") Select Department
+            option(value="Admin") Admin
+            option(value="Accounts") Accounts
+            option(value="HR") HR
+            option(value="Development") Development
+            option(value="Sales") Sales
+            option(value="Collection") Collection
+            option(value="Trainee Intern") Trainee Intern
+            option(value="Customer Service Executive") Customer Service Executive 
+        .form-group
+          label(for='role') Role
+          select#rolePayNew.rolePayNew-select2.form-control(name='role', style='width: 465px')
+            option(value="-1" selected="selected") Select Role
+        .form-check.form-check-inline
+          input#days.form-check-input(type='radio' name='inlineRadioOptions' value='days' checked)
+          label.form-check-label(for='inlineRadio1') Days
+        .form-check.form-check-inline
+          input#monthNew.form-check-input(type='radio' name='inlineRadioOptions' value='month')
+          label.form-check-label(for='inlineRadio2') Month
+        .form-check.form-check-inline
+          input#year.form-check-input(type='radio' name='inlineRadioOptions' value='year' )
+          label.form-check-label(for='inlineRadio3') Year 
+        .form-group
+          select#monthViewNew.month-select2.form-control(name='monthView', style='width: 465px', required)
+            option(value="-1" selected="selected") Select Month
+            option(value="1") January
+            option(value="2") February
+            option(value="3") March
+            option(value="4") April
+            option(value="5") May
+            option(value="6") June
+            option(value="7") July
+            option(value="8") August
+            option(value="9") September
+            option(value="10") October
+            option(value="11") November
+            option(value="12") December
+        .form-group
+          label(for='dayCount') No. of Days
+          input#dayCountNew.dayCount.form-control(type='text', name='dayCount', style='width: 465px', placeholder='No. of Day')
+        .form-group
+          label(for='amountPay') Amount Payable
+          input#amountPayableNew.form-control(type='text', name='Amount Payable', placeholder='Amount Payable')
+        .form-group
+          label(for='totalAmount')  Total Amount
+          input#totalAmountNew.form-control(type='text', name='totalAmount', placeholder='Total Amount', disabled)
+      .modal-footer
+        input#checkReset(type='checkbox' data-toggle='toggle' data-on='Reset ok' data-off='Reset' data-onstyle='success' data-offstyle='danger')
+        button.btn.btn-warning(type='submit' data-bs-dismiss='modal')
+          | Close
+        button#addPayrollNew.btn.btn-info(type='submit')
+          | Update
+div#tables
+  table#payrollNew(class="display" style="width:60%")
+    thead
+      tr
+        th Department
+        th Role
+        th Days (In Number)
+        th Amount Payable (For Day)
+        th Total Amount (Calculated For Mention Day)
+    tbody
+      tr 
+        th 
+        th 
+        th 
+        th 
+        th 
+
+  // jQuery (necessary for Bootstrap's JavaScript plugins)
+  script(src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous")
+  script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js')
+  // select
+  script(src='https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js')
+  // datatables
+    //-   script(src='https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js')
+    //-   script(src='https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js')
+    script(type="text/javascript" charset="utf8", src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js")
+  script(type="text/javascript" src="https://cdn.datatables.net/v/dt/jqc-1.12.4/dt-1.12.1/b-2.2.3/sl-1.4.0/datatables.min.js")
+  script(type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js")
+  script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js")
+  script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js")
+  script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js")
+  script(type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js")
+  script(type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js")
+  script(type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.colVis.min.js")
+  script(type="text/javascript" src="https://cdn.datatables.net/select/1.4.0/js/dataTables.select.min.js")
+  script(type="text/javascript" src="https://editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js")
+  script(type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js")
+  script(type="text/javascript" src="https://cdn.datatables.net/select/1.4.0/js/dataTables.select.min.js")
+  script(type="text/javascript" src="https://cdn.datatables.net/datetime/1.1.2/js/dataTables.dateTime.min.js")
+  script(type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-tabledit@1.0.0/jquery.tabledit.min.js")
+
+  // popper & bootstrap
+  script(src='https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js')
+  script(src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous") 
+  script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous") 
+  // custom JS
+  script(type="text/javascript" charset="utf8", src="/javascripts/renderAction.js")        

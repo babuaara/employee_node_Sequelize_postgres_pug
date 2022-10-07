@@ -51,6 +51,16 @@ module.exports = (sequelize, DataTypes) => {
       },
      
     },
+    departmentId: {
+			type: DataTypes.STRING
+		},
+    roleId: {
+			type: DataTypes.STRING
+		},permanentAddress: {
+			type: DataTypes.STRING
+		},currentAddress: {
+			type: DataTypes.STRING
+		},
     password:{
       type:DataTypes.STRING,
       allowNull:false,

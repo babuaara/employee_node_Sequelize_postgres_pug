@@ -1,10 +1,12 @@
 extends layout
 
 block content
-  h1= title
-  p#welcome Welcome to #{title}
-    
-  a#in(href='login') Login  
-
-  a#in(href='reg') Registration
+  div#welcome
+    h1= title
+    p Welcome to #{title}
+    div
+      a(href='login') 
+        button#int Login  
+      a(href='reg')
+        button#int Registration
   

@@ -2,22 +2,59 @@ extends ../layout
 
 block content
     #main
-     form(action="reg" method="post")
+     form#registrationForm(action='reg', method='post')
        div.label Registration Form
-       div.username
-        input(type="firstname" name="firstname" placeholder="First Name" required)
-       div.username
-        input(type="lastname" name="lastname" placeholder="Last Name" required)
+       div.userName
+        input#firstName(type="firstName" name="firstName" placeholder="First Name" required)
+       div.userName
+        input#lastName(type="lastName" name="lastName" placeholder="Last Name" required)
        div.email
-        input(type="email" name="email" placeholder="Email" required)
-       div.phonenumber
-        input(type="phonenumber" name="phonenumber" placeholder="Phone Number" required)
+        input#email(type="email" name="email" placeholder="Email" required)
+       div.phoneNumber
+        input(type="phoneNumber" name="phoneNumber" placeholder="Phone Number" required)
+       div.department
+        select#department.departmentReg-select2.form-control(name='department', style='width: 265px', required)
+            option(value="-1" selected="selected") Select Department
+            option(value="Admin") Admin
+            option(value="Accounts") Accounts
+            option(value="HR") HR
+            option(value="Development") Development
+            option(value="Sales") Sales
+            option(value="Collection") Collection
+            option(value="Trainee") Trainee Intern
+            option(value="CustomerServiceExecutive") Customer Service Executive   
+       div.role
+        select#role.roleReg-select2.form-control(name='role', style='width: 265px', required)
+            option(value="-1" selected="selected") Select Role
+       div.permanentAddress
+        textarea#permanentAddress.permanentAddress.form-control(name='permanentAddress')
+       div.checkbox
+        input#checkboxCopy.checkboxCopy(type="checkbox" name="checkbox")
+        |  Check For Same Address
+       div.currentAddress
+        textarea#currentAddress.currentAddress.form-control(name='currentAddress')     
        div.password
         input(type="password" name="password" placeholder="Password" required)
        div.password
         input(type="password" name="cpassword"  placeholder="Confirm Password" required)
-       button(type="submit") SignUp
+       button#reg(type="submit") SignUp
        h3 or login with
-       div.social
-        button(type="button") <i class="fa fa-facebook"></i>
-        button(type="button") <i class="fa fa-google-plus"></i>
+        p
+        | a member
+        a(href='login') SignIn
+
+     script(src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous")
+     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js')
+     script(type="text/javascript" charset="utf8", src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js")
+     script(type="text/javascript" src="https://cdn.datatables.net/v/dt/jqc-1.12.4/dt-1.12.1/b-2.2.3/sl-1.4.0/datatables.min.js")
+     script(type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js")
+     script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js")
+     script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js")
+     script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js")
+     script(type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js")
+     script(type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js")
+     script(type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.colVis.min.js")
+     script(type="text/javascript" charset="utf8", src="/javascripts/renderAction.js")
+     script(src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous") 
+     script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous") 
+   
